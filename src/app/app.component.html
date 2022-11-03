@@ -29,21 +29,23 @@
         </button>
       </div>
       <div class="card mt-3">
-        <div class="card-header">
-          General info
-        </div>
-        <div class="card-body">
+        <div class="card-header h3">
           {{ selectedQuiz.quizName }}
         </div>
-      </div>
-      <div class="card mt-3">
-        <div class="card-header">
-          Questions
+        <div class="card-body"
+          *ngFor="let qt of selectedQuiz.quizQuestions"
+        >
+          <div class="card">
+            <div class="card-header">
+              {{ qt.questionText }}
+            </div>
+            <div class="card-body">
+              Coming soon to a quiz near you...
+            </div>
+          </div>
         </div>
-        <div class="card-body">
-          Coming soon to a quiz near you...
-        </div>
       </div>
+      
       <div class="card mt-3">
         <div class="card-header">
           Other?

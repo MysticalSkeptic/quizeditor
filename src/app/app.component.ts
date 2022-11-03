@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuizService } from './quiz.service';
 
 interface QuizDisplay {
@@ -39,4 +39,7 @@ export class AppComponent implements OnInit {
   selectQuiz = (quizToSelect: QuizDisplay) => {
     this.selectedQuiz = quizToSelect;
   };
+
+  @Input("value")
+  newQuiz = "Untitled Quiz";
 }
