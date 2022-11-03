@@ -40,7 +40,7 @@
               {{ qt.questionText }}
             </div>
             <div class="card-body">
-              Coming soon to a quiz near you...
+              <input #box type="text" class="form-control" (keyup.enter)="clicked(box.value)">
             </div>
           </div>
         </div>
