@@ -17,7 +17,10 @@
         </div>
       </div>
     </div>
-    <div class="col-md-8 mt-3">
+    <div
+      class="col-md-8 mt-3"
+      *ngIf="selectedQuiz !== undefined"
+    >
       <div>
         <button class="btn btn-outline-dark">
           Save
@@ -49,6 +52,19 @@
         <div class="card-body">
           Coming soon to a quiz near you...
         </div>
+      </div>
+    </div>
+    <div
+      class="col-md-8"
+      *ngIf="selectedQuiz === undefined"
+    >
+      <div class="card bg-light text-center mt-3">
+        <h2>
+          No Quiz Selected
+        </h2>
+        <p>
+          Select a quiz to see things here... or take drugs...
+        </p>
       </div>
     </div>
   </div>
