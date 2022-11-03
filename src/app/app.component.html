@@ -17,8 +17,7 @@
         </div>
       </div>
     </div>
-    <div
-      class="col-md-8 mt-3"
+    <div class="col-md-8 mt-3"
       *ngIf="selectedQuiz !== undefined"
     >
       <div>
@@ -34,7 +33,7 @@
           General info
         </div>
         <div class="card-body">
-          Coming soon to a quiz near you...
+          {{ selectedQuiz.quizName }}
         </div>
       </div>
       <div class="card mt-3">
@@ -54,8 +53,7 @@
         </div>
       </div>
     </div>
-    <div
-      class="col-md-8"
+    <div class="col-md-8"
       *ngIf="selectedQuiz === undefined"
     >
       <div class="card bg-light text-center mt-3">
