@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const data = this.quizSvc.loadQuizzes();
-    console.log(data);
 
     this.quizzes = data.map((x: any) => ({
       quizName: x.name,
@@ -30,10 +29,14 @@ export class AppComponent implements OnInit {
         questionText: y.name
       }))
     }));
-    console.log(this.quizzes);
+    
   }
 
+  
+
   quizzes: QuizDisplay[] = [];
+
+  quizQuestion: QuestionDisplay[] = [];
 
   selectedQuiz: QuizDisplay | undefined = undefined;
 
@@ -41,8 +44,10 @@ export class AppComponent implements OnInit {
     this.selectedQuiz = quizToSelect;
   };
 
-  clicked = (box: string) => {
-    console.log(box);
+  writtenQuestion = "";
+
+  clicked = () => {
+    console.log(this.writtenQuestion);
     
 
   };

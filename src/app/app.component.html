@@ -40,7 +40,12 @@
               {{ qt.questionText }}
             </div>
             <div class="card-body">
-              <input #box type="text" class="form-control" (keyup.enter)="clicked(box.value)">
+              <input 
+              type="text" 
+              class="form-control" 
+              [(ngModel)]="writtenQuestion"
+              (keyup.enter)="clicked()"
+              >
             </div>
           </div>
         </div>
