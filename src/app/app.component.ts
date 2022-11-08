@@ -32,7 +32,21 @@ export class AppComponent implements OnInit {
     
   }
 
-  
+  // newQuiz = ''
+
+  // addNewQuiz = () => {
+    
+  //   const newQuiz: QuizDisplay = {
+  //     quizName: 'Untitled Quiz',
+  //     quizQuestions: []
+  //   };
+
+  //   this.quizzes = {
+  //     ...this.quizzes,
+  //     newQuiz
+  //   }
+
+  // }  
 
   quizzes: QuizDisplay[] = [];
 
@@ -44,12 +58,29 @@ export class AppComponent implements OnInit {
     this.selectedQuiz = quizToSelect;
   };
 
-  writtenQuestion = "";
+  addNewQuestion = () => {
+    if (this.selectedQuiz != undefined) {
+      this.selectedQuiz.quizQuestions = [
+        ...this.selectedQuiz.quizQuestions,
+        {
+          questionText: 'New Question'
+        }
+      ]
+    }
+  };
 
-  clicked = () => {
-    console.log(this.writtenQuestion);
+  removeQuestion = (questionToRemove: QuestionDisplay) => {
+    if (this.selectedQuiz != undefined) {
+      this.selectedQuiz.quizQuestions = this.selectedQuiz.quizQuestions.filter(x => x !== questionToRemove)
+    }
+  };
+
+  // writtenQuestion = "";
+
+  // clicked = () => {
+  //   console.log(this.writtenQuestion);
     
 
-  };
+  // };
 
 }

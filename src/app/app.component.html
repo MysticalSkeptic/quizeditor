@@ -16,13 +16,8 @@
               {{ q.quizName }}
             </span>
             
-            <small class="fst-italic fw-lighter">
-              {{ q.quizQuestions.length }} question
-              <span 
-                *ngIf="q.quizQuestions.length !== 1"
-              >
-                s
-              </span>
+            <small class="fst-italic fw-lighter text-nowrap">
+              {{ q.quizQuestions.length }} question<span *ngIf="q.quizQuestions.length !== 1">s</span>
             </small>
           </button>
         </div>
@@ -43,12 +38,20 @@
         <div class="card-header h3">
           {{ selectedQuiz.quizName }}
         </div>
-        <div class="card-body"
+        <!-- <div class="card-body"
           *ngFor="let qt of selectedQuiz.quizQuestions"
         >
           <div class="card">
-            <div class="card-header">
-              {{ qt.questionText }}
+            <div class="row">
+              <div class="col-md-10">
+                
+              </div>
+            </div>
+            <div class="card-header d-flex justify-items-between">
+              <span>{{ qt.questionText }}</span>
+              <button class="btn btn-outline-success">
+                Add Question
+              </button>
             </div>
             <div class="card-body">
               <input 
@@ -57,6 +60,36 @@
               [(ngModel)]="writtenQuestion"
               (keyup.enter)="clicked()"
               >
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-header">
+          Questions
+        </div>
+        <div class="card-body">
+          <button
+            class="btn btn-outline-success"
+            (click)="addNewQuestion()"
+          >
+            Add New Question
+          </button>
+          <div 
+            class="row mt-3"
+            *ngFor="let question of selectedQuiz.quizQuestions"
+          >
+            <div class="col-md-10">
+              {{ question.questionText }}
+            </div>
+            <div class="col-md-2">
+              <button 
+                class="btn btn-link text-danger"
+                (click)="removeQuestion(question)"
+              >
+                Remove
+              </button>
             </div>
           </div>
         </div>
