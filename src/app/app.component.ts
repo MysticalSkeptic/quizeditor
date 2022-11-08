@@ -32,8 +32,6 @@ export class AppComponent implements OnInit {
     
   }
 
-  // newQuiz = ''
-
   // addNewQuiz = () => {
     
   //   const newQuiz: QuizDisplay = {
@@ -46,7 +44,7 @@ export class AppComponent implements OnInit {
   //     newQuiz
   //   }
 
-  // }  
+  // };
 
   quizzes: QuizDisplay[] = [];
 

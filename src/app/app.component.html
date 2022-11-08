@@ -81,7 +81,8 @@
             *ngFor="let question of selectedQuiz.quizQuestions"
           >
             <div class="col-md-10">
-              {{ question.questionText }}
+              <input type="text" class="form-control"
+              [(ngModel)]="question.questionText">
             </div>
             <div class="col-md-2">
               <button 
