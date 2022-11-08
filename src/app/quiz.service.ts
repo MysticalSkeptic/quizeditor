@@ -26,9 +26,6 @@ export class QuizService {
         questions: [
           {
             name: 'Question 1'
-          },
-          {
-            name: 'Question 2'
           }
           // this.questionsForQuiz = [
           //   ...this.questionsForQuiz
