@@ -13,6 +13,7 @@
             *ngFor="let q of quizzes"
             [class.active]="q === selectedQuiz"
             (click)="selectQuiz(q)"
+            [style.text-decoration]="q.markedForDelete ? 'line-through' : 'inherit'"
           >
             <span class="text-truncate">
               {{ q.quizName }}
