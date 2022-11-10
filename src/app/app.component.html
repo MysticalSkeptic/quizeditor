@@ -13,13 +13,15 @@
             *ngFor="let q of quizzes"
             [class.active]="q === selectedQuiz"
             (click)="selectQuiz(q)"
-            [style.text-decoration]="q.markedForDelete ? 'line-through' : 'inherit'"
+            [class.bg-warning]="q.markedForDelete === true"
           >
             <span class="text-truncate">
               {{ q.quizName }}
             </span>
             
-            <small class="fst-italic fw-lighter text-nowrap">
+            <small class="fst-italic fw-lighter text-nowrap"
+              [class.text-danger]="q.quizQuestions.length === 0 && q !== selectedQuiz"
+            >
               Questions: {{ q.quizQuestions.length }}
             </small>
           </button>
