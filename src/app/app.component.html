@@ -99,8 +99,15 @@
         <h2>
           No Quiz Selected
         </h2>
-        <p>
-          Select a quiz to see things here... or take drugs...
+        <p
+          class="d-flex align-items-center justify-content-center"
+        >
+          Select or 
+          <button class="btn btn-link p-1"
+            (click)="addNewQuiz()"
+          >
+          add a quiz</button>
+          to see things here... or take drugs...
         </p>
       </div>
     </div>
