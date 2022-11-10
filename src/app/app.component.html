@@ -53,8 +53,8 @@
         <div class="card-body"
           *ngFor="let qt of selectedQuiz.quizQuestions"
         >
-          <div class="card-header row">
-            <div class="col">Question</div>
+          <div class="card-header row align-items-center">
+            <div class="col-md-10">Question</div>
            
             <div class="col-md-2">
               <button 
@@ -74,11 +74,18 @@
       </div>
       
       <div class="card mt-3">
-        <div class="card-header">
-          Other?
+        <div class="card-header bg-danger text-light">
+          Danger, Will Robinson! Danger!
         </div>
         <div class="card-body">
-          Coming soon to a quiz near you...
+          <div class="form-check">
+            <label class="form-check-label text-danger">
+              <input type="checkbox" class="form-check-input"
+                [(ngModel)]="selectedQuiz.markedForDelete"
+              >
+              Mark For Delete
+            </label>
+          </div>
         </div>
       </div>
     </div>
