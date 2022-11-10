@@ -73,6 +73,8 @@ export class AppComponent implements OnInit {
     }
   };
 
+  
+
   // writtenQuestion = "";
 
   // clicked = () => {
