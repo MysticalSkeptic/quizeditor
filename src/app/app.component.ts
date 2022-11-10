@@ -73,14 +73,5 @@ export class AppComponent implements OnInit {
     }
   };
 
-  
-
-  // writtenQuestion = "";
-
-  // clicked = () => {
-  //   console.log(this.writtenQuestion);
-    
-
-  // };
 
 }
