@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 interface QuizFromWeb {
   name: string;
@@ -17,7 +18,9 @@ export interface QuizQuestion {
 
 export class QuizService {
 
-  constructor() { }
+  constructor(
+    private angularHttpSvc: HttpClient
+  ) { }
 
   questionsForQuiz: QuizQuestion[] = [];
 
