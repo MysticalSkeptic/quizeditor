@@ -31,6 +31,28 @@ export class QuizService {
       "https://modern-js.azurewebsites.net/api/HttpTriggerJS1?code=8XD3vN3ehHLdZacBQJQhgUnNst9202gdd5VM3kWCytDkz2nXhia6kA==&name=Mystery%20Quiz"
     );
 
-    return quizzesFromWeb.pipe(repeat(2));
+    return quizzesFromWeb.pipe(repeat(1));
   }
-}
+
+  getMagicNumber = (callerWantsToSucceed: boolean): Promise<number> => {
+    return new Promise<number>(
+      (resolve, reject) => {
+
+        //
+        // Some fancy long running code here...
+        //
+
+        // Ultimately resolve if successful.
+        if (callerWantsToSucceed) {
+          resolve(42);
+        }
+        // Or reject if failure.
+        else {
+          reject("Your promises mean nothing.");
+        }
+      }
+    );
+  }
+};
+
+
