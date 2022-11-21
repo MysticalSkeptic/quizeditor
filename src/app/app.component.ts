@@ -1,5 +1,4 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { async } from 'rxjs';
 import { QuizService } from './quiz.service';
 
 interface QuizDisplay {
@@ -12,7 +11,6 @@ interface QuestionDisplay {
   questionText: string;
 }
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,6 +21,8 @@ export class AppComponent implements OnInit {
   constructor(private quizSvc: QuizService) {}
 
   errorLoadingQuizzes = false;
+
+  quizPageLoading = false;
 
   loadQuizzesFromWeb = async () => {
     try {
@@ -110,7 +110,6 @@ export class AppComponent implements OnInit {
           e => console.log(e)
           )
       }
-
       
     ).catch(
       e => console.log(e)
@@ -149,5 +148,4 @@ export class AppComponent implements OnInit {
       console.log(err)
     }
   };
-
 }

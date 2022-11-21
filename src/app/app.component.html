@@ -1,10 +1,21 @@
 <div class="container">
   <div class="row"
+    *ngIf="quizPageLoading"
+  >
+    <div class="col-md-12">
+      <h3>
+        I promise the quizzes are loading... Really, I do..
+      </h3>
+    </div>
+  </div>
+  <div class="row"
     *ngIf="errorLoadingQuizzes"
   >
     <div class="col-md-12">
       <div class="alert alert-info mt-3">
-        The internet is experiencing clear skies. Come back when there are clouds...
+        <h3>
+          The internet is experiencing clear skies. Come back when there are clouds...
+        </h3>
       </div>
     </div>
   </div>
