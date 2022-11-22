@@ -22,10 +22,11 @@ export class AppComponent implements OnInit {
 
   errorLoadingQuizzes = false;
 
-  quizPageLoading = false;
+  quizPageLoading = true;
 
   loadQuizzesFromWeb = async () => {
     try {
+      this.quizPageLoading = true;
       
       const data = await this.quizSvc.loadQuizzes();
       console.log(data);
@@ -42,6 +43,11 @@ export class AppComponent implements OnInit {
 
     catch (err) {
       console.log(err);
+      this.errorLoadingQuizzes = true;
+    }
+
+    finally {
+      this.quizPageLoading = false;
     }
   };
 
