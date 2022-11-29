@@ -154,4 +154,10 @@ export class AppComponent implements OnInit {
       console.log(err)
     }
   };
+
+  cancelAllChanges = () => {
+    this.loadQuizzesFromWeb();
+    this.selectedQuiz = undefined;
+  }
+
 }
