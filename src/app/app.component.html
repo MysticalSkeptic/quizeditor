@@ -57,6 +57,11 @@
       <div>
         <button class="btn btn-outline-dark">
           Save
+          <span class="badge bg-danger ms-1"
+            *ngIf="deletedQuizCount > 0"
+          >
+            -{{ deletedQuizCount }}
+          </span>
         </button>
         <button class="btn btn-link"
           (click)="cancelAllChanges()"
