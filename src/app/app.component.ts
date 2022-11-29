@@ -4,7 +4,8 @@ import { QuizService } from './quiz.service';
 interface QuizDisplay {
   quizName: string;
   quizQuestions: QuestionDisplay[];
-  markedForDelete: boolean
+  markedForDelete: boolean;
+  newlyAdded: boolean;
 }
 
 interface QuestionDisplay {
@@ -36,7 +37,8 @@ export class AppComponent implements OnInit {
         quizQuestions: x.questions.map(y => ({
           questionText: y.name
         })),
-        markedForDelete: false
+        markedForDelete: false,
+        newlyAdded: false
       }));
     
     }
@@ -60,7 +62,8 @@ export class AppComponent implements OnInit {
     const newQuiz: QuizDisplay = {
       quizName: 'Untitled Quiz',
       quizQuestions: [],
-      markedForDelete: false
+      markedForDelete: false,
+      newlyAdded: true
     };
 
     this.quizzes = [
@@ -164,6 +167,15 @@ export class AppComponent implements OnInit {
 
   get deletedQuizCount() {
     return this.getDeletedQuizzes().length;
+  };
+
+  getAddedQuizzes = () => this.quizzes.filter(x => 
+    x.newlyAdded
+    && !x.markedForDelete
+    );
+
+  get addedQuizCount() {
+    return this.getAddedQuizzes().length;
   };
 
 }
