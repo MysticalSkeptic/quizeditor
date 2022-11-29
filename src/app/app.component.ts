@@ -191,13 +191,17 @@ export class AppComponent implements OnInit {
   };
 
   getEditedQuizzes = () => this.quizzes.filter(x => 
-    !x.newlyAdded
-    && !x.markedForDelete
-    && this.generateNaiveChecksum(x) != x.naiveChecksum
-    );
+    this.isQuizEdited(x)
+  );
 
   get editedQuizCount() {
     return this.getEditedQuizzes().length;
   };
+
+  isQuizEdited = (q: QuizDisplay) => 
+    !q.newlyAdded
+    && !q.markedForDelete
+    && this.generateNaiveChecksum(q) != q.naiveChecksum;
+  
 
 }

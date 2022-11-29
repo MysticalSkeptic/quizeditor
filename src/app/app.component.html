@@ -41,6 +41,12 @@
             <span class="text-truncate">
               {{ q.quizName }}
             </span>
+
+            <span class="badge bg-info"
+              *ngIf="isQuizEdited(q)"
+            >
+              *Edited
+            </span>
             
             <small class="fst-italic fw-lighter text-nowrap"
               [class.text-danger]="q.quizQuestions.length === 0 && q !== selectedQuiz"
