@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { repeat, lastValueFrom } from 'rxjs';
 
 interface QuizFromWeb {
@@ -11,6 +11,16 @@ interface QuizFromWeb {
 
 export interface QuizQuestion {
   text: string;
+}
+
+export interface ShapeForSavingEditedQuizzes {
+  quiz: string;
+  questions: { question: string; }[];
+}
+​
+export interface ShapeForSavingNewQuizzes {
+  quizName: string;
+  quizQuestions: string[];
 }
 
 @Injectable({
@@ -54,7 +64,31 @@ export class QuizService {
         }
       }
     );
-  }
-};
+  };  
 
+  saveQuizzes = (
+    changedQuizzes: ShapeForSavingEditedQuizzes[]
+    , newQuizzes: ShapeForSavingNewQuizzes[] = []
+  ) => {
 
+    let h = new HttpHeaders({
+      'Content-Type': 'application/json'
+      , 'X-Sas-Token': 'sig=K2WE6NQPtyoV6ke5hwPEaEaW52fgvyFWUeCEdPJls1s'
+    });
+
+    return lastValueFrom(
+      this.angularHttpSvc.post(
+        'https://modern-js.azurewebsites.net/save-quizzes-proxy'
+        , JSON.stringify(
+          {
+            "changedQuizzes": changedQuizzes
+            , "newQuizzes": newQuizzes
+          }
+        )
+        , {
+          headers: h
+        }
+      )
+    );
+  };  
+}
