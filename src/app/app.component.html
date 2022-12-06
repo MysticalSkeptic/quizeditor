@@ -59,6 +59,8 @@
     </div>
     <div class="col-md-8 mt-3"
       *ngIf="selectedQuiz !== undefined"
+      [@detailsFromLeft]="detailsAnimationState"
+      (@detailsFromLeft.done)="detailsAnimationDone()"
     >
       <div>
         <button class="btn btn-outline-dark">
