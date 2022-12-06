@@ -153,8 +153,6 @@ export class AppComponent implements OnInit {
       const n2 = this.quizSvc.getMagicNumber(false);
       console.log(n2);
 
-      // const results = await Promise.all([n1, n2]);
-      // const results = Promise.race([n1, n2]);
       const results = await Promise.any([n1, n2]);
       console.log(results);
     }
