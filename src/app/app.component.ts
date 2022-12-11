@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QuizService } from './quiz.service';
+import { QuizService, ShapeForSavingEditedQuizzes, ShapeForSavingNewQuizzes } from './quiz.service';
 import {
   trigger,
   transition,
@@ -231,10 +231,28 @@ export class AppComponent implements OnInit {
     && !q.markedForDelete
     && this.generateNaiveChecksum(q) != q.naiveChecksum;
 
-    detailsAnimationState = "leftPosition";
+  detailsAnimationState = "leftPosition";
 
-    detailsAnimationDone = () => {
-      this.detailsAnimationState = "leftPosition";
+  detailsAnimationDone = () => {
+    this.detailsAnimationState = "leftPosition";
+  }
+
+  saveQuizzes = async () => {
+    try {
+      const newQuizzes: ShapeForSavingNewQuizzes[] = [];
+      const editedQuizzes: ShapeForSavingEditedQuizzes[] = [];
+
+      const countUpdatedQuizzes = await this.quizSvc.saveQuizzes(
+        editedQuizzes,
+        newQuizzes
+      );
+
+      console.log("count of updates: ", countUpdatedQuizzes);
     }
+    catch (err) {
+      console.error(err);
+    }
+  };
+
 }
 
