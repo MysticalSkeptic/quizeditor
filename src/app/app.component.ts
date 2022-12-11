@@ -240,7 +240,12 @@ export class AppComponent implements OnInit {
   saveQuizzes = async () => {
     try {
       const newQuizzes: ShapeForSavingNewQuizzes[] = [];
-      const editedQuizzes: ShapeForSavingEditedQuizzes[] = [];
+      const editedQuizzes: ShapeForSavingEditedQuizzes[] = this.getEditedQuizzes().map(x => ({
+        quiz: x.quizName,
+        questions: x.quizQuestions.map(y => ({
+          question: y.questionText
+        }))
+      }));
 
       const countUpdatedQuizzes = await this.quizSvc.saveQuizzes(
         editedQuizzes,
